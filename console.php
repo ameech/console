@@ -3,7 +3,10 @@
 require __DIR__ . '/vendor/autoload.php';
 
 Equip\Console\Application::build()
+->setConfiguration([
+    Equip\Configuration\RedisConfiguration::class,
+])
 ->setCommands([
-    new Equip\Console\Command\Hello,
+    Equip\Console\Command\Hello::class,
 ])
 ->run();

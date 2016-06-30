@@ -12,11 +12,11 @@ class Hello extends Command
 {
     public function __construct(Redis $redis)
     {
-        $this->redis = $redis;
+        parent::__construct();
         
-        parent::__construct(null);
+        $this->redis = $redis;
     }
-    
+
 
     protected function configure()
     {
@@ -35,7 +35,7 @@ class Hello extends Command
         OutputInterface $output
     ) {
         $name = $input->getArgument('name') ?: 'world';
-        
+
         $output->writeln(sprintf('Hello, %s!', $name));
     }
 }
